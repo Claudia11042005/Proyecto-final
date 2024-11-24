@@ -1,0 +1,37 @@
+flowchart TB
+    A[Firewall de Próxima Generación] --> B{Switch Core Administrable}
+    
+    subgraph Corporativo
+    C[Red Administrativa\n27 Computadoras]
+    D[Servidor Directorio Activo]
+    E[Servidor VPN]
+    end
+
+    subgraph Planta Lagos de Moreno
+    F[Red de Producción\n17 Computadoras]
+    G[Servidor Producción]
+    end
+
+    subgraph Planta Cd. Guzmán
+    H[Red de Producción\n24 Computadoras]
+    I[Servidor Producción]
+    end
+
+    subgraph Internet
+    J[Conexión Segura]
+    end
+
+    B --> C
+    B --> F
+    B --> H
+    
+    D --> C
+    E --> J
+    
+    A --> J
+    
+    classDef seguridad fill:#f96,stroke:#333,stroke-width:2px;
+    classDef red fill:#77dd77,stroke:#333,stroke-width:2px;
+    
+    class A,D,E seguridad;
+    class B,C,F,H red;
